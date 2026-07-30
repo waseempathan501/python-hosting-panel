@@ -392,6 +392,16 @@ def hosting():
             file_path = os.path.join(project_path, "main.py")
             py_file.save(file_path)
             
+            # PERMANENT FIX: Auto-disable app.run() in any uploaded python script
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    file_code = f.read()
+                file_code = file_code.replace("app.run(", "# app.run(")
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(file_code)
+            except Exception:
+                pass
+            
             # Execute the python script using subprocess and capture output
             try:
                 result = subprocess.run([sys.executable, file_path], capture_output=True, text=True, timeout=10)
@@ -444,4 +454,4 @@ def view_output(project_name):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
+    
