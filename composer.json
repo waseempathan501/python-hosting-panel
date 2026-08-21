@@ -1,0 +1,8 @@
+{
+    "name": "waseem/waseem-hosting",
+    "description": "WASEEM HOSTING - PHP file deployment website",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    }
+}
