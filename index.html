@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waseem Visuals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="phone-shell">
+
+  <!-- ===================== PROFILE HEADER ===================== -->
+  <header class="hero">
+    <div class="hero-top">
+      <button class="icon-btn" onclick="history.back()" aria-label="Back">←</button>
+      <div class="pill">CONNECT WITH<br>WASEEM</div>
+      <div class="rainbow-dot" aria-hidden="true"></div>
+    </div>
+
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <img class="avatar-img"
+             src="https://raw.githubusercontent.com/waseempathan501/Photo-link-/refs/heads/main/IMG-20260625-WA0003.jpg"
+             alt="Waseem">
+      </div>
+      <span class="status-dot"></span>
+    </div>
+
+    <h1 class="name">Waseem Visuals</h1>
+    <p class="bio">
+      Cyber Security student &amp; Ethical Hacker in the making.<br>
+      Learning Web, App, AI &amp; API development, Bug Bounty and Python bots.
+    </p>
+
+    <div class="link-list">
+      <a class="link-card whatsapp" href="https://whatsapp.com/channel/0029VbD4m3ZFCCoWbOzY3x2S" target="_blank" rel="noopener">
+        <span class="link-icon">
+          <svg viewBox="0 0 32 32" width="22" height="22"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.8c1.9 1 4.1 1.6 6.3 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.1 1.1-4.5-.2-.4C5.4 17.6 5 16.3 5 15 5 8.9 9.9 4 16 4s11 4.9 11 11-4.9 9.8-11 9.8zm5.9-7.4c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+        </span>
+        <span class="link-text">WhatsApp Channel</span>
+        <span class="chev">›</span>
+      </a>
+
+      <a class="link-card tiktok" href="https://tiktok.com/@waseempathan902" target="_blank" rel="noopener">
+        <span class="link-icon">
+          <svg viewBox="0 0 32 32" width="20" height="20"><path fill="currentColor" d="M23.5 9.7c-1.6-1-2.6-2.7-2.8-4.6h-3.4v16.4c0 1.7-1.4 3.1-3.1 3.1s-3.1-1.4-3.1-3.1 1.4-3.1 3.1-3.1c.3 0 .6 0 .9.1v-3.5c-.3 0-.6-.1-.9-.1-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5 6.5-2.9 6.5-6.5v-8.3c1.3.9 2.9 1.5 4.6 1.5V10c-.6 0-1.2-.1-1.8-.3z"/></svg>
+        </span>
+        <span class="link-text">TikTok</span>
+        <span class="chev">›</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===================== HOSTING DASHBOARD ===================== -->
+  <main class="dash">
+
+    <div class="dash-heading">
+      <p class="eyebrow">Powered by Python &amp; Flask</p>
+      <h2>Waseem's File Hosting</h2>
+      <p class="dash-sub">Upload anything below and get an instant live link — just like GitHub Pages, but yours.</p>
+    </div>
+
+    <div class="upload-grid">
+
+      <!-- Web files -->
+      <div class="upload-card" data-category="web">
+        <div class="card-top">
+          <span class="card-emoji">🧩</span>
+          <div>
+            <h3>HTML / CSS / JavaScript files</h3>
+            <p>Host a full website — upload .html, .css or .js files</p>
+          </div>
+        </div>
+        <form class="upload-form" data-endpoint="/upload">
+          <input type="file" name="file" accept=".html,.htm,.css,.js,.mjs,.json" required>
+          <button type="submit">Deploy file</button>
+        </form>
+        <div class="result"></div>
+      </div>
+
+      <!-- Direct HTML code -->
+      <div class="upload-card" data-category="code">
+        <div class="card-top">
+          <span class="card-emoji">💻</span>
+          <div>
+            <h3>Direct HTML code</h3>
+            <p>Paste raw HTML code and host it as a live page instantly</p>
+          </div>
+        </div>
+        <form class="code-form" data-endpoint="/host-html">
+          <input type="text" name="title" placeholder="Page name (optional)">
+          <textarea name="code" rows="4" placeholder="<html>...paste your code here...</html>" required></textarea>
+          <button type="submit">Host this code</button>
+        </form>
+        <div class="result"></div>
+      </div>
+
+      <!-- Images -->
+      <div class="upload-card" data-category="image">
+        <div class="card-top">
+          <span class="card-emoji">🖼️</span>
+          <div>
+            <h3>Images</h3>
+            <p>PNG, JPG, GIF, WEBP, SVG — get a direct live image link</p>
+          </div>
+        </div>
+        <form class="upload-form" data-endpoint="/upload">
+          <input type="file" name="file" accept="image/*" required>
+          <button type="submit">Deploy image</button>
+        </form>
+        <div class="result"></div>
+      </div>
+
+      <!-- Audio -->
+      <div class="upload-card" data-category="audio">
+        <div class="card-top">
+          <span class="card-emoji">🎵</span>
+          <div>
+            <h3>Audio / Songs</h3>
+            <p>MP3, WAV, OGG, M4A — host and stream sound files</p>
+          </div>
+        </div>
+        <form class="upload-form" data-endpoint="/upload">
+          <input type="file" name="file" accept="audio/*" required>
+          <button type="submit">Deploy audio</button>
+        </form>
+        <div class="result"></div>
+      </div>
+
+      <!-- Video -->
+      <div class="upload-card" data-category="video">
+        <div class="card-top">
+          <span class="card-emoji">🎬</span>
+          <div>
+            <h3>Videos</h3>
+            <p>MP4, WEBM, MOV — host and stream video files</p>
+          </div>
+        </div>
+        <form class="upload-form" data-endpoint="/upload">
+          <input type="file" name="file" accept="video/*" required>
+          <button type="submit">Deploy video</button>
+        </form>
+        <div class="result"></div>
+      </div>
+
+      <!-- Any file -->
+      <div class="upload-card" data-category="file">
+        <div class="card-top">
+          <span class="card-emoji">📁</span>
+          <div>
+            <h3>Any other file</h3>
+            <p>PDFs, zips, docs — anything else you need a live link for</p>
+          </div>
+        </div>
+        <form class="upload-form" data-endpoint="/upload">
+          <input type="file" name="file" required>
+          <button type="submit">Deploy file</button>
+        </form>
+        <div class="result"></div>
+      </div>
+
+    </div>
+
+    {% if files %}
+    <div class="recent">
+      <h3>Recently hosted</h3>
+      <div class="recent-list">
+        {% for f in files %}
+        <a class="recent-item" href="{{ f.url }}" target="_blank" rel="noopener">
+          <span class="tag tag-{{ f.category }}">{{ f.category }}</span>
+          <span class="rname">{{ f.name }}</span>
+          <span class="chev">↗</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </main>
+
+  <!-- ===================== BOTTOM NAV ===================== -->
+  <nav class="bottom-nav">
+    <a href="{{ url_for('home') }}" class="nav-item active">
+      <span class="nav-icon">⌂</span>
+      <span>Home</span>
+    </a>
+    <a href="{{ url_for('projects') }}" class="nav-item">
+      <span class="nav-icon">💼</span>
+      <span>Projects</span>
+    </a>
+    <a href="{{ url_for('portfolio') }}" class="nav-item">
+      <span class="nav-icon">🪪</span>
+      <span>Portfolio</span>
+    </a>
+  </nav>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
